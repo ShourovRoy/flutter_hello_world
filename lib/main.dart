@@ -22,13 +22,21 @@ class MyApp extends StatelessWidget {
           child: Center(
             child: Text(
               "Hello World",
-              style: TextStyle(fontSize: 40.0),
+              style: TextStyle(
+                fontSize: 40.0,
+                color: Colors.pink,
+                fontWeight: FontWeight.bold,
+                fontStyle: FontStyle.italic,
+              ),
             ),
           ),
         ),
         floatingActionButton: FloatingActionButton(
           onPressed: () {},
-          child: Icon(Icons.add),
+          child: Icon(
+            Icons.add,
+            size: 30.0,
+          ),
           backgroundColor: Colors.pinkAccent,
         ),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
