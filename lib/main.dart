@@ -4,8 +4,21 @@ void main() {
   runApp(MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   const MyApp({Key? key}) : super(key: key);
+
+  @override
+  _MyAppState createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  var count;
+  
+  @override
+  void initState() {
+    super.initState();
+    count = 0;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -21,13 +34,17 @@ class MyApp extends StatelessWidget {
         body: Container(
           child: Center(
             child: Text(
-              "Hello World",
+              "Pressed: $count",
               style: TextStyle(fontSize: 40.0),
             ),
           ),
         ),
         floatingActionButton: FloatingActionButton(
-          onPressed: () {},
+          onPressed: () {
+            setState(() {
+              count++;
+            });
+          },
           child: Icon(Icons.add),
           backgroundColor: Colors.pinkAccent,
         ),
