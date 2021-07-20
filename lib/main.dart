@@ -13,11 +13,27 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   var count;
-  
+
+  List<String> jokes = [
+    "Joke 1",
+    "Joke 2",
+    "Joke 3",
+  ];
+
   @override
   void initState() {
     super.initState();
     count = 0;
+  }
+
+  void getAnotherJoke() {
+    setState(() {
+      if (count == (jokes.length - 1)) {
+        count = 0;
+      } else {
+        count++;
+      }
+    });
   }
 
   @override
@@ -34,18 +50,14 @@ class _MyAppState extends State<MyApp> {
         body: Container(
           child: Center(
             child: Text(
-              "Pressed: $count",
+              "${jokes[count]}",
               style: TextStyle(fontSize: 40.0),
             ),
           ),
         ),
         floatingActionButton: FloatingActionButton(
-          onPressed: () {
-            setState(() {
-              count++;
-            });
-          },
-          child: Icon(Icons.add),
+          onPressed: this.getAnotherJoke,
+          child: Icon(Icons.refresh_rounded),
           backgroundColor: Colors.pinkAccent,
         ),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
