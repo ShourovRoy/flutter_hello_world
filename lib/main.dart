@@ -4,8 +4,37 @@ void main() {
   runApp(MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   const MyApp({Key? key}) : super(key: key);
+
+  @override
+  _MyAppState createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  var count;
+
+  List<String> jokes = [
+    "Joke 1",
+    "Joke 2",
+    "Joke 3",
+  ];
+
+  @override
+  void initState() {
+    super.initState();
+    count = 0;
+  }
+
+  void getAnotherJoke() {
+    setState(() {
+      if (count == (jokes.length - 1)) {
+        count = 0;
+      } else {
+        count++;
+      }
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -21,14 +50,14 @@ class MyApp extends StatelessWidget {
         body: Container(
           child: Center(
             child: Text(
-              "Hello World",
+              "${jokes[count]}",
               style: TextStyle(fontSize: 40.0),
             ),
           ),
         ),
         floatingActionButton: FloatingActionButton(
-          onPressed: () {},
-          child: Icon(Icons.add),
+          onPressed: this.getAnotherJoke,
+          child: Icon(Icons.refresh_rounded),
           backgroundColor: Colors.pinkAccent,
         ),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
