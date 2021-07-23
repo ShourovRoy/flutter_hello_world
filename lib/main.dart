@@ -40,7 +40,7 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: "Hello World",
+      title: "Jokes App",
       home: Scaffold(
         appBar: AppBar(
           title: Text("Hello App"),
@@ -48,11 +48,22 @@ class _MyAppState extends State<MyApp> {
           backgroundColor: Colors.pinkAccent,
         ),
         body: Container(
-          child: Center(
-            child: Text(
-              "${jokes[count]}",
-              style: TextStyle(fontSize: 40.0),
+          margin: EdgeInsets.symmetric(
+            horizontal: 20.0,
+            vertical: 10.0,
+          ),
+          padding: EdgeInsets.all(16.0),
+          decoration: BoxDecoration(
+            color: Colors.pinkAccent,
+            border: Border.all(
+              color: Colors.black,
+              width: 2.0,
             ),
+            gradient: LinearGradient(colors: [Colors.pink, Colors.orangeAccent])
+          ),
+          child: Text(
+            "${jokes[count]}",
+            style: TextStyle(fontSize: 30.0),
           ),
         ),
         floatingActionButton: FloatingActionButton(
