@@ -16,19 +16,16 @@ class MyApp extends StatelessWidget {
           centerTitle: true,
           backgroundColor: Colors.pinkAccent,
         ),
-        body: Center(
-          child: ElevatedButton.icon(
-            onPressed: () {},
-            icon: Icon(Icons.camera),
-            label: Text("My Button"),
-            style: ElevatedButton.styleFrom(
-              primary: Colors.pinkAccent,
-              padding: const EdgeInsets.all(20.0),
-              side: BorderSide(
-                color: Colors.pinkAccent,
-                width: 3.0
-              )
-            ),
+        body: Container(
+          color: Colors.pink.shade100,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              Icon(Icons.book, color:Colors.purple, size: 50.0,),
+              Icon(Icons.book, color:Colors.purple, size: 100.0,),
+              Icon(Icons.book, color:Colors.purple, size: 150.0,),
+            ],
           ),
         ),
       ),
