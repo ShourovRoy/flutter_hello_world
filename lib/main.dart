@@ -4,38 +4,7 @@ void main() {
   runApp(MyApp());
 }
 
-class MyApp extends StatefulWidget {
-  const MyApp({Key? key}) : super(key: key);
-
-  @override
-  _MyAppState createState() => _MyAppState();
-}
-
-class _MyAppState extends State<MyApp> {
-  var count;
-
-  List<String> jokes = [
-    "Joke 1",
-    "Joke 2",
-    "Joke 3",
-  ];
-
-  @override
-  void initState() {
-    super.initState();
-    count = 0;
-  }
-
-  void getAnotherJoke() {
-    setState(() {
-      if (count == (jokes.length - 1)) {
-        count = 0;
-      } else {
-        count++;
-      }
-    });
-  }
-
+class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -43,35 +12,25 @@ class _MyAppState extends State<MyApp> {
       title: "Jokes App",
       home: Scaffold(
         appBar: AppBar(
-          title: Text("Hello App"),
+          title: const Text("Hello App"),
           centerTitle: true,
           backgroundColor: Colors.pinkAccent,
         ),
-        body: Container(
-          margin: EdgeInsets.symmetric(
-            horizontal: 20.0,
-            vertical: 10.0,
-          ),
-          padding: EdgeInsets.all(16.0),
-          decoration: BoxDecoration(
-            color: Colors.pinkAccent,
-            border: Border.all(
-              color: Colors.black,
-              width: 2.0,
+        body: Center(
+          child: ElevatedButton.icon(
+            onPressed: () {},
+            icon: Icon(Icons.camera),
+            label: Text("My Button"),
+            style: ElevatedButton.styleFrom(
+              primary: Colors.pinkAccent,
+              padding: const EdgeInsets.all(20.0),
+              side: BorderSide(
+                color: Colors.pinkAccent,
+                width: 3.0
+              )
             ),
-            gradient: LinearGradient(colors: [Colors.pink, Colors.orangeAccent])
-          ),
-          child: Text(
-            "${jokes[count]}",
-            style: TextStyle(fontSize: 30.0),
           ),
         ),
-        floatingActionButton: FloatingActionButton(
-          onPressed: this.getAnotherJoke,
-          child: Icon(Icons.refresh_rounded),
-          backgroundColor: Colors.pinkAccent,
-        ),
-        floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       ),
     );
   }
